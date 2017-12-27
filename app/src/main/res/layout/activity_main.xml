@@ -1,0 +1,132 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />   <!-- View Visibiltiy : Visible:Gone -->
+
+        <variable
+            name="temp"
+            type="com.example.vijayakumar.databind.Bindcontroller" />
+        <variable
+            name="action"
+            type="com.example.vijayakumar.databind.MainActivity" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/textview.textsize10"
+            android:textStyle="bold"
+            android:text="@={temp.title}"/>
+
+        <!-- ================ First Name ======================   -->
+        <TextView
+            style="@style/textview.textsize10"
+            android:text="@={temp.title_firstname}"/>
+
+        <EditText
+            android:digits="QWERTZUIOPASDFGHJKLYXCVBNMqwertzuiopasdfghjklyxcvbnm "
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLength="40"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            style="@style/edittext"
+            android:text="@={temp.edit_first_name}"
+            />
+
+        <TextView
+            style="@style/textviewerr"
+            android:text="@={temp.err_first_name}"
+            android:visibility="gone"
+            android:id="@+id/errFirstNameTxt"
+            />
+
+        <!-- ================ Last Name ======================   -->
+
+        <TextView
+            style="@style/textview.textsize10"
+            android:text="@={temp.title_lastname}"/>
+
+        <EditText
+            android:digits="QWERTZUIOPASDFGHJKLYXCVBNMqwertzuiopasdfghjklyxcvbnm "
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLength="40"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            style="@style/edittext"
+            android:text="@={temp.edit_last_name}"
+            />
+
+        <TextView
+            style="@style/textviewerr"
+            android:text="@={temp.err_last_name}"
+            android:visibility="gone"
+            android:id="@+id/errLastNameTxt"
+            />
+
+        <!-- ================ Martial Status ======================   -->
+
+        <TextView
+            style="@style/textview.textsize10"
+            android:text="@={temp.title_martialstatus}"/>
+
+        <Spinner
+            android:id="@+id/txtMaritalStatus"
+            style="@style/spinner"
+            android:entries="@array/martialstatus"/>
+
+        <!-- ================ No. of children  ======================   -->
+
+        <TextView
+            style="@style/textview.textsize10"
+            android:text="@={temp.title_no_of_child}"
+            android:visibility="@{temp.childrenvis ? View.VISIBLE :View.GONE}" />
+
+        <Spinner
+            android:id="@+id/txtNoofChild"
+            style="@style/spinner"
+            android:entries="@array/noofchildren_array"
+            android:visibility="@{temp.childrenvis ? View.VISIBLE :View.GONE}"/>
+
+
+        <!-- ================ Button Actions ======================   -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp">
+
+        <TextView
+            style="@style/submitbtn"
+            android:id="@+id/txt_submit_click"
+            android:textAllCaps="false"
+            android:text="@={temp.submit}"
+            android:onClick="@{(view) -> action.UserActions(view)}"/>
+
+        <TextView
+            style="@style/submitbtn"
+            android:id="@+id/txt_add_click"
+            android:textAllCaps="false"
+            android:layout_marginStart="30dp"
+            android:text="@={temp.add}"
+            android:layout_toEndOf="@+id/txt_submit_click"
+            android:onClick="@{(view) -> action.UserActions(view)}"/>
+
+            <TextView
+                style="@style/submitbtn"
+                android:id="@+id/txt_clear_click"
+                android:textAllCaps="false"
+                android:layout_marginStart="30dp"
+                android:text="@={temp.clear}"
+                android:layout_toEndOf="@+id/txt_add_click"
+                android:onClick="@{(view) -> action.UserActions(view)}"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

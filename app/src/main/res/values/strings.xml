@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Databind</string>
+
+
+    <string-array name="martialstatus">
+        <item id="0">Select</item>
+        <item id="1">Never married</item>
+        <item id="2">Widowed</item>
+        <item id="3">Divorced</item>
+        <item id="4">Awaiting divorce</item>
+    </string-array>
+
+    <string-array name="noofchildren_array">
+        <item id="99">Select</item>
+        <item id="0">No Children</item>
+        <item id="1">1 Child</item>
+        <item id="2">2 Children</item>
+        <item id="3">3 Children</item>
+        <item id="4">4 Children &amp; above</item>
+    </string-array>
+</resources>
